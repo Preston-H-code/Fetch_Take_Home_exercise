@@ -57,6 +57,7 @@ def monitor_endpoints(file_path,cycle):
     config = file_path
     domain_stats = defaultdict(lambda: {"up": 0, "total": 0})
     print(f"Monitoring Cycle # {cycle} Started at:  {datetime.now().strftime("%H:%M:%S %m-%d-%Y")}")
+    sys.stdout.flush()
     for endpoint in config:
         #Removes protocal, page path, and ports leaving just domain and subdomain
         full_domain = endpoint["url"].split("//")[-1].split("/")[0].split(":")[0].split(".")
@@ -76,6 +77,7 @@ def monitor_endpoints(file_path,cycle):
 
     print(f"The Cycle {cycle} completed {datetime.now().strftime("%H:%M:%S %m-%d-%Y")}")
     print("---")
+    sys.stdout.flush()
 
 def run_monitor(endpoints, count):
     threading.Thread(target=monitor_endpoints,args=(endpoints,count)).start()
@@ -100,6 +102,7 @@ if __name__ == "__main__":
                 run_monitor(yml_config, counter)
                 time.sleep(15)
         print("Fix your yaml file. Every endpoint needs a name and url.")
+        sys.stdout.flush()
     except KeyboardInterrupt:
         print("\nMonitoring stopped by user.")
     except FileNotFoundError:
