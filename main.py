@@ -1,5 +1,4 @@
 import json
-import sys
 import threading
 import yaml
 import requests
@@ -68,9 +67,9 @@ def monitor_endpoints(file_path,cycle):
         domain_stats[domain]["total"] += 1
         if result == "UP":
             domain_stats[domain]["up"] += 1
-
+    # Log cumulative availability percentages
     print("---")
-    print(f"Cycle # {cycle} Results: ")    # Log cumulative availability percentages
+    print(f"Cycle # {cycle} Results: ")
     for domain, stats in domain_stats.items():
         availability = round(100 * stats["up"] / stats["total"])
         print(f"{domain} has {availability}% availability percentage")
