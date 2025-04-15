@@ -84,3 +84,6 @@ My changes handled the removal of port numbers and subdomains.
 The issue with the original implementation  of the `monitor_endpoints`  function is that it would have to check all the endpoints before it waited 15 seconds.
 In the event that there are a bunch of endpoints to check and checking them takes a long time, the cycles will be delayed and not run every 15 seconds. To fix this I created a function called 
 `run_monitor` that runs the `monitor_endpoints` function in a thread. `run_monitor` is then called in the main function every 15 seconds. This allows a cycle to begin every 15 seconds regardless of if a previous cycle is completed. 
+
+4. This is a late edition , when running this script on a Windows computer I was not getting the logs until I ended the script.
+I added the `sys.stdout.flush()` function to ensure that windows user's would get live logging.
