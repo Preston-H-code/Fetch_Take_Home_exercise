@@ -1,5 +1,6 @@
 # Fetch_Take_Home_exercise
-My Submission for the Fetch SRE take home exercise.
+This is my Submission for the Fetch SRE take home exercise.
+- Author: Preston Harewood
 ### Prerequisite for Installation
 1. The first thing you need for this project is to install git. Go to the link below and follow the instructions on installing git.
 For Windows users this should also download the ***git bash*** application which we will use later as our terminal.
@@ -49,13 +50,13 @@ now have the repository in your current folder.
 ## Issues and Fixes
 ### YAML Issues 
 1. One of the first issues I noticed was with the handling of the yaml file. I noticed that there wasn't a check to see if the file existed, 
-so I added a the `does_file_exist` function that would check that a file exist and is not a directory.
+so I added the `does_file_exist` function that would check that a file exist and is not a directory.
 
 
-2. There also wasn't a check to ensure that the file was in fact a  yaml file. So that capability was added with the function `is_file_yaml`. 
+2. There also wasn't a check to ensure that the file was in fact a yaml file. So that capability was added with the function `is_file_yaml`. 
 
 
-3. The final issue I noticed with the yaml file was that the endpoint data wasn't verified. In the requirements it was stated that every endpoint was required to have a name and url. 
+3. The final issue I noticed in handling the yaml file was that each endpoint's data was not verified. In the requirements it was stated that every endpoint was required to have a name and url. 
 So the `is_config_valid` function was added to ensure that every endpoint has name and url.
 
 ### Check Health function changes
@@ -70,7 +71,7 @@ to change the body from a json object to a proper python object so that the HTTP
 3. Finally, the requirements stated that the request should time out after 500ms. This led me to adding a time out parameter for the request.
  
 ### Monitor endpoints function changes
-1. I wanted to ensure that there was a clear way to keep track of the amount of cycles that were run and when they took place. 
+1. I wanted to ensure that there was a clear way to keep track of the amount of cycles that were run and at what time took place. 
 This led me to adding a parameter for the cycle number and adding timestamps at the beginning and end of each cycle. That way we keep track of the amount of cycles that have run and how long each cycle takes.
 
  
